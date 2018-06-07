@@ -1,0 +1,51 @@
+<div>
+  <form [formGroup]="formdata" (ngSubmit) = "onClickSubmit(formdata.value)" >
+     <input type="text" class="fortextbox" name="emailid" placeholder="emailid" 
+        formControlName="emailid">
+     <br/>
+     
+     <input type="password" class="fortextbox" name="passwd" 
+        placeholder="passwd" formControlName="passwd">
+     <br/>
+     
+     <input type="submit" class="forsubmit" value="Log In">
+  </form>
+</div>
+<p>
+  Email entered is : {{emailid}}
+</p>
+
+<p>
+  JSONDATA : {{jsonData}}
+</p>
+
+
+<p>
+  Search
+</p>
+
+<input type="text" class="fortextbox" name="search" placeholder="search" formControlName="search" (change)="serachFunction($event)">
+
+<p>
+  Table Form
+</p>
+
+
+<table>
+  <thead>
+    <th>ID</th>
+    <th>Email</th>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Website</th>
+  </thead>
+  <tbody >
+    <tr *ngFor='let data of jsonData; let i=index;'>
+      <td>{{jsonData[i].id}}</td>
+      <td>{{data.email}}</td>
+      <td>{{data.name}}</td>
+      <td>{{data.phone}}</td>
+      <td>{{data.website}}</td>
+    </tr>
+  </tbody>
+</table>
